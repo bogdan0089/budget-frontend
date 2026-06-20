@@ -73,6 +73,25 @@ body {
   outline: none;
 }
 
+/* Input with leading icon */
+.input-group-text {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  color: #94a3b8;
+}
+
+.input-group .form-control {
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+
+.input-group:focus-within .input-group-text {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
 .form-label {
   color: #475569;
   margin-bottom: 6px;
