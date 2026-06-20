@@ -1,43 +1,51 @@
 <template>
-  <div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-    <div class="card p-4" style="width: 420px">
-      <h4 class="fw-bold mb-1">Create account</h4>
-      <p class="text-muted mb-4 small">Start tracking your finances today</p>
+  <AuthCard>
+    <h3 class="fw-bold mb-1">Create account</h3>
+    <p class="text-muted mb-4 small">Start tracking your finances today</p>
 
-      <div v-if="error" class="alert alert-danger py-2 small">{{ error }}</div>
-      <div v-if="success" class="alert alert-success py-2 small">Account created! Redirecting to login...</div>
+    <div v-if="error" class="alert alert-danger py-2 small">{{ error }}</div>
+    <div v-if="success" class="alert alert-success py-2 small">Account created! Redirecting to login...</div>
 
-      <form @submit.prevent="handleRegister">
-        <div class="mb-3">
-          <label class="form-label small fw-semibold">Full name</label>
+    <form @submit.prevent="handleRegister">
+      <div class="mb-3">
+        <label class="form-label small fw-semibold">Full name</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
           <input v-model="form.full_name" type="text" class="form-control" placeholder="John Doe" required />
         </div>
-        <div class="mb-3">
-          <label class="form-label small fw-semibold">Email</label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label small fw-semibold">Email</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope"></i></span>
           <input v-model="form.email" type="email" class="form-control" placeholder="you@example.com" required />
         </div>
-        <div class="mb-4">
-          <label class="form-label small fw-semibold">Password</label>
+      </div>
+      <div class="mb-4">
+        <label class="form-label small fw-semibold">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-lock"></i></span>
           <input v-model="form.password" type="password" class="form-control" placeholder="Min 8 characters" required minlength="8" />
         </div>
-        <button type="submit" class="btn btn-primary w-100" :disabled="loading">
-          <span v-if="loading" class="spinner-border spinner-border-sm me-1"></span>
-          Create account
-        </button>
-      </form>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" :disabled="loading">
+        <span v-if="loading" class="spinner-border spinner-border-sm me-1"></span>
+        Create account
+      </button>
+    </form>
 
-      <p class="text-center mt-3 mb-0 small text-muted">
-        Already have an account?
-        <RouterLink to="/login" class="text-primary">Sign in</RouterLink>
-      </p>
-    </div>
-  </div>
+    <p class="text-center mt-3 mb-0 small text-muted">
+      Already have an account?
+      <RouterLink to="/login" class="text-primary fw-semibold">Sign in</RouterLink>
+    </p>
+  </AuthCard>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useRouter, RouterLink } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import AuthCard from '../components/AuthCard.vue'
 
 const auth = useAuthStore()
 const router = useRouter()
