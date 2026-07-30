@@ -14,6 +14,18 @@ const routes = [
     meta: { guest: true },
   },
   {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: () => import('../views/ForgotPasswordView.vue'),
+    meta: { guest: true },
+  },
+  {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component: () => import('../views/ResetPasswordView.vue'),
+    meta: { guest: true },
+  },
+  {
     path: '/',
     component: () => import('../components/layout/AppLayout.vue'),
     meta: { requiresAuth: true },
@@ -47,6 +59,11 @@ const routes = [
         path: 'ai',
         name: 'AI',
         component: () => import('../views/AiView.vue'),
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: () => import('../views/SettingsView.vue'),
       },
     ],
   },

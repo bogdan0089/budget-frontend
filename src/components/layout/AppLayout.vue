@@ -33,6 +33,11 @@
             <i class="bi bi-stars me-2"></i>AI Insights
           </RouterLink>
         </li>
+        <li class="nav-item">
+          <RouterLink to="/settings" class="nav-link px-2 py-2" active-class="active">
+            <i class="bi bi-gear me-2"></i>Settings
+          </RouterLink>
+        </li>
       </ul>
 
       <button class="btn btn-outline-light btn-sm w-100 mt-auto" @click="handleLogout">
